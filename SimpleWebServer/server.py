@@ -16,8 +16,8 @@ def createServer():
             data += "Content-Type: text/html; charset=utf-8\r\n"
             data += "\r\n"
             data += "<html><body>Hello World</body></html>\r\n\r\n"
-            clientSocket.sendall(data.encode())
-            clientSocket.shutdown(SHUT_WR)
+            clientSocket.sendall(data.encode()) # encode to UTF8
+            clientSocket.shutdown(SHUT_WR) # Close connections
 
     except KeyboardInterrupt:
         print("\nShutting down...\n")
@@ -27,5 +27,5 @@ def createServer():
 
     serverSocket.close()
 
-print("Acess http://localhost:9000")
+print("Access http://localhost:9000")
 createServer()
